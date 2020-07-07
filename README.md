@@ -27,9 +27,9 @@ The AI4DL package contains the basic code to train and use the AI4Dl tool from C
 
  * **example.py** : An example loading a traces data-set, training the AI4DL (complete crbm + clustering pipeline) and printing an example trace with found phases 
  
-### Sample traces
+### Sample Notebook
 
- * **sample_traces.data**: TODO - Here will go files with sample traces
+ * **sample_nb**: Here's a sample notebook with a trained model and sample traces
 
 ## Using the Tool
 
@@ -61,8 +61,8 @@ copy, inspect, joblib, json, matplotlib, numexpr, numpy, os, pandas, pickle, ran
 - **TransformData** ( *data_file* ) : Reads and Transforms a dataset *data_file*, scaled by the trained scaler (e.g. reading a Test-Set). Returns a "List of Timeseries" (each execution a timeseries, all values scaled using the trained scaler).
 
 #### Training / Loading Model:
-- **TrainModel** ( *n_clusters*, *n_hidden*, *n_history*, *learning_rate*, *n_epochs*, *crbm_save*, *kmeans_save*, *seed* ) : Trains (fits) the full model CRBM + k-Means using the loaded training-set. The AI4DL object stores the trained pipeline, also can be stored in disk files.
-- **LoadModel** ( *crbm_save*, *kmeans_save*, *crbm_sub*, *kmeans_sub* ) : Loads the model (CRBM + k-Means, or parts of it) from disk files.
+- **TrainModel** ( *n_clusters*, *n_hidden*, *n_history*, *learning_rate*, *n_epochs*, *crbm_save*, *kmeans_save*, *scaler_save*, *seed* ) : Trains (fits) the full model CRBM + k-Means using the loaded training-set. The AI4DL object stores the trained pipeline, also can be stored in disk files.
+- **LoadModel** ( *crbm_save*, *kmeans_save*, *scaler_save*, *crbm_sub*, *kmeans_sub*, *scaler_sub* ) : Loads the model (CRBM + k-Means + scaler, or parts of it) from disk files.
 
 #### Predict / Evaluate:
 - **Predict** ( *list_of_timeseries* ) : Predicts a "List of Timeseries". Returns a "List of Sequences (of phases)".

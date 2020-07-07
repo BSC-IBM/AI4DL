@@ -27,6 +27,7 @@ def main_test():
 	
 	crbm_save = "ai4dl_crbm1"
 	kmeans_save = "ai4dl_kmeans1.joblib"
+	scaler_save = "ai4dl_scaler1.joblib"
 	
 	palette = {0:'grey', 1:'green', 2:'blue', 3:'red', 4:'orange'}
 	cpu_idx = 0 # cpu.usage
@@ -42,8 +43,8 @@ def main_test():
 	## 2. Train Model (CRBM + K-Means)
 	print("Training the CRBM + K-Means")
 	
-	ai4dl1.TrainModel(n_clusters, n_hidden, n_history, learning_rate, n_epochs, crbm_save, kmeans_save, seed = 123)
-	#ai4dl1.LoadModel(crbm_save, kmeans_save)
+	ai4dl1.TrainModel(n_clusters, n_hidden, n_history, learning_rate, n_epochs, crbm_save, kmeans_save, scaler_save, seed = 123)
+	#ai4dl1.LoadModel(crbm_save, kmeans_save, scaler_save)
 	
 	## 3. Predict Sequences
 	print("Inference of traces")

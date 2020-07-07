@@ -134,7 +134,7 @@ class AI4DL():
 	'''
 	Trains the full model CRBM + k-Means using the Training Data
 	'''
-	def TrainModel (self, n_clusters, n_hidden, n_history, learning_rate = 0.001, n_epochs = 100, crbm_save = None, kmeans_save = None, seed = 123):
+	def TrainModel (self, n_clusters, n_hidden, n_history, learning_rate = 0.001, n_epochs = 100, crbm_save = None, kmeans_save = None, scaler_save = None, seed = 123):
 		
 		## Save configuration info
 		self.n_clusters = n_clusters
@@ -164,6 +164,9 @@ class AI4DL():
 		if not kmeans_save is None:
 			dump(kmeans, kmeans_save)
 		
+		if not scaler_save is None:
+			dump(self.scaler, scaler_save)
+		
 		## Storing the models and Pipeline
 		steps = (crbm, kmeans)
 		self.pipeline = TimeseriesPipeline(steps)
@@ -171,7 +174,7 @@ class AI4DL():
 	'''
 	Loads the model CRBM + k-Means (or parts of it) from files
 	'''
-	def LoadModel (self, crbm_save, kmeans_save, crbm_sub = None, kmeans_sub = None):
+	def LoadModel (self, crbm_save, kmeans_save, scaler_save, crbm_sub = None, kmeans_sub = None, scaler_sub = None):
 		
 		crbm = crbm_tools.CRBM(1,1,1)
 		if not crbm_save is None:
@@ -183,6 +186,11 @@ class AI4DL():
 			kmeans = load(kmeans_save)
 		else:
 			kmeans = kmeans_sub
+		
+		if not scaler_save is None:
+			self.scaler = load(scaler_save)
+		else:
+			self.scaler = scaler_sub		
 		
 		## Storing the models and Pipeline
 		steps = (crbm, kmeans)

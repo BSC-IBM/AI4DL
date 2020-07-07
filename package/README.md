@@ -34,13 +34,15 @@ The features used to identify containers are:
 
 The selected features from traces used for behavior modelling on the presented examples are:
 
-- "cpu.usage" :	Indicates the amount of cores x machines in use by the instance
+- "cpu.usage" :	Indicates the amount CPU load in use by the instance
 - "cpu.usage.cores" : Indicates the amount of cores provided to the instance (the maximum core usage)
 - "cpu.usage.pct" : Indicates the usage of CPU in percentage
 - "cpu.usage.pct.container.requested" : Indicates the CPU requested in percentage (from the maximum available)
-- "mem.current" : Indicates the amount of memory in use by the instance
+- "mem.current" : Indicates the memory load in use by the instance
 - "mem.limit" : Indicates the memory limit for the instance
 - "mem.usage.pct" : Indicates the memory usage in percentage
 - "mem.working.set" : Indicates the requested memory available
 
 From those variables, we focus on *cpu.usage* and *mem.current* as absolute indicators of resource usage, although all the selected features are used for training by providing resource consumption and resource limits to detect stress scenarios.
+
+The model is agnostic of the metrics, so equivalent CPU/Mem/IO metrics can be trained and predicted later.
