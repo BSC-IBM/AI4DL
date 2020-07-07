@@ -4,9 +4,14 @@ AI4DL - Deep-Learning Containter Auto-Scaling framework
 
 ## Introduction
 
-TODO - SOME INTRODUCTION HERE
+AI4DL is a framework developed by BSC and IBM to analyze resource consumption traces from Cloud containers and discover and detect recurrent behaviors, focusing on Deep Learning workloads. AI4DL uses unsupervised learning methods like CRBMs and clustering to discover patterns in time-series from CPU/Memory/... traces, providing information about the workload behavior along time to be leveraged for resource planification. Here we present the implementation of the AI4DL framework in python, to fit a model for phase discovery and detection from traces in tabular format.
+
 
 The principles and experiments for AI4DL can be found in ***AI4DL Mining Behaviors of Deep Learning Workloads for Resource Management*** from the *HotCloud'20: 12th USENIX Workshop on Hot Topics in Cloud Computing*, by Josep L. Berral (BSC), Chen Wang (IBM) and Alaa Youssef (IBM).
+
+Abstract:
+
+> The more we know about the resource usage patterns of workloads, the better we can allocate resources. Here we present a methodology to discover resource usage behaviors of containers training Deep Learning (DL) models. From monitoring, we can observe repeating patterns and similitude of resource usage among containers training different DL models. The repeating patterns observed can be leveraged by the scheduler or the resource autoscaler to reduce resource fragmentation and overall resource utilization in a dedicated DL cluster. Specifically, our approach combines Conditional Restricted Boltzmann Machines (CRBMs) and clustering techniques to discover common sequences of behaviors (phases) of containers running the DL training workloads in clusters providing IBM Deep Learning Services. By studying the resource usage pattern at each phase and the typical sequences of phases among different containers, we discover a reduced set of prototypical executions representing the majority of executions. We use statistical information from each phase to refine resource provisioning by dynamically tuning the amount of resource each container requires at each phase. Evaluation of our method shows that by leveraging typical resource usage patterns, we can auto-scale containers to reduce CPU and Memory allocation by 30% compared to statistics based reactive policies, which is close to having a-priori knowledge of resource usage while fulfilling resource demand over 95% of the time.
 
 ## Package Content
 
