@@ -11,7 +11,7 @@ Here there is the code of AI4DL ready to use, with an example. The AI4DL package
  
 ### An example
 
- * **example.py** : An example loading a traces data-set, training the AI4DL (complete crbm + clustering pipeline) and printing an example trace with found phases 
+ * **example.py** : An example of how load a traces data-set, training the AI4DL (complete crbm + clustering pipeline) and printing an example trace with found phases. Check the data format here proposed to prepare the "training" and "testing" data (e.g. you could use files named "df.train.csv" and "df.test.csv"), and feel free to play with the variables to be used from the traces (e.g. in our example we use { "cpu.usage", "cpu.usage.cores", "cpu.usage.pct", etc... }, also we use "pod.id" to identify different executions in our collection of traces). As the model is agnostic of the features, you can include those features/traces/metrics you target in your use case.
  
 ## Data Format for traces
 
