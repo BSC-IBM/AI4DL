@@ -7,7 +7,7 @@ AI4DL - Deep-Learning Containter Auto-Scaling framework
 AI4DL is a framework developed by BSC and IBM to analyze resource consumption traces from Cloud containers and discover and detect recurrent behaviors, focusing on Deep Learning workloads. AI4DL uses unsupervised learning methods like CRBMs and clustering to discover patterns in time-series from CPU/Memory/... traces, providing information about the workload behavior along time to be leveraged for resource planification. Here we present the implementation of the AI4DL framework in python, to fit a model for phase discovery and detection from traces in tabular format.
 
 
-The principles and experiments for AI4DL can be found in ***AI4DL Mining Behaviors of Deep Learning Workloads for Resource Management*** from the *HotCloud'20: 12th USENIX Workshop on Hot Topics in Cloud Computing*, by Josep L. Berral (BSC), Chen Wang (IBM) and Alaa Youssef (IBM).
+The principles and experiments for AI4DL can be found in ***AI4DL Mining Behaviors of Deep Learning Workloads for Resource Management*** from the *HotCloud'20: 12th USENIX Workshop on Hot Topics in Cloud Computing*, by Josep L. Berral (BSC), Chen Wang (IBM) and Alaa Youssef (IBM). Find the document and presentation [HERE](https://www.usenix.org/conference/hotcloud20/presentation/berral)
 
 Abstract:
 
