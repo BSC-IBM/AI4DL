@@ -212,7 +212,7 @@ class AI4DL():
 	Loads a file and transforms into a "List of Timeseries", then predicts it
 	'''
 	def LoadAndPredict (self, data_file):
-		list_of_timeseries = model1.TransformData(data_file)
+		list_of_timeseries = self.TransformData(data_file)
 		return self.Predict(list_of_timeseries)
 	
 	'''
