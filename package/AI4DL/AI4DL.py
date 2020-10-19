@@ -52,7 +52,7 @@ class TimeseriesPipeline():
 		return list_of_outputs
 	
 	def getStep (self, idx):
-		return self.setps[idx]
+		return self.steps[idx]
 
 class AI4DL():
 	
@@ -88,7 +88,7 @@ class AI4DL():
 		scaler = StandardScaler()
 		scaler.fit(dataset[self.features].values)
 		dataset_scaled = copy.deepcopy(dataset)
-		dataset_scaled[self.features] = scaler.transform(dataset[self.features].values)
+		dataset_scaled[self.features] = scaler.transform(dataset[self.features].values.astype(np.float))
 		
 		## Prepare Timeseries
 		unique_ids = dataset_scaled[self.exec_id].unique()
@@ -109,7 +109,7 @@ class AI4DL():
 		dataset  = pd.read_csv(data_file)
 		
 		dataset_scaled = copy.deepcopy(dataset)
-		dataset_scaled[self.features] = self.scaler.transform(dataset[self.features].values)
+		dataset_scaled[self.features] = self.scaler.transform(dataset[self.features].values.astype(np.float))
 			
 		unique_ids = dataset_scaled[self.exec_id].unique()
 		for identifier in unique_ids:
@@ -214,7 +214,7 @@ class AI4DL():
 	def LoadAndPredict (self, data_file):
 		list_of_timeseries = self.TransformData(data_file)
 		return self.Predict(list_of_timeseries)
-	
+		
 	'''
 	Printingt Functions - Print the trace from a TimeSeries
 	'''
@@ -228,10 +228,14 @@ class AI4DL():
 	'''
 	def PrintVarAnalysis (self, list_of_timeseries, pred_seq_phases, cpu_idx, mem_idx, palette, col_names, f_name):
 		
+		## Get number of phases
+		n_phases = max([item for sublist in pred_seq_phases for item in sublist]) + 1
+		palette = {k: palette[k] for k in list(palette)[:n_phases]}
+		
 		## Get Phase Information
 		phase_sets_cpu = []
 		phase_sets_mem = []
-		for k in range(0, 5):
+		for k in range(0, n_phases):
 			phase_sets_cpu.append([])
 			phase_sets_mem.append([])
 		
@@ -248,7 +252,7 @@ class AI4DL():
 		axs[1].set_title(col_names[1])
 		axs[1].boxplot(phase_sets_mem, labels=palette.values())
 		axs[2].set_title("Freq. phases")
-		N, bins, patches = axs[2].hist(np.concatenate(pred_seq_phases), bins = 5, )
+		N, bins, patches = axs[2].hist(np.concatenate(pred_seq_phases), bins = n_phases, range=[0,n_phases])
 		for x in range(0, len(patches)):
 			patches[x].set_facecolor(palette[x])
 		fig.tight_layout(pad = 2.0, w_pad = 0.0, h_pad = 3.0)
