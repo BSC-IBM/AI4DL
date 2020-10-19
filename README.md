@@ -9,6 +9,8 @@ AI4DL is a framework developed by BSC and IBM to analyze resource consumption tr
 
 The principles and experiments for AI4DL can be found in ***AI4DL Mining Behaviors of Deep Learning Workloads for Resource Management*** from the *HotCloud'20: 12th USENIX Workshop on Hot Topics in Cloud Computing*, by Josep L. Berral (BSC), Chen Wang (IBM) and Alaa Youssef (IBM). Find the document and presentation [HERE](https://www.usenix.org/conference/hotcloud20/presentation/berral)
 
+The potential actions towards expansion and discovery of new phases and behaviors, also prediction of phases towards preemptive placement, can be found in ***Proactive Container Auto-scaling for Cloud Native Machine Learning Services*** from the *The IEEE International Conference on Cloud Computing (CLOUD)*, by David Buchaca (BSC), Josep L. Berral (BSC), Chen Wang (IBM) and Alaa Youssef (IBM). Find the document and presentation HERE (TBP)
+
 Abstract:
 
 > The more we know about the resource usage patterns of workloads, the better we can allocate resources. Here we present a methodology to discover resource usage behaviors of containers training Deep Learning (DL) models. From monitoring, we can observe repeating patterns and similitude of resource usage among containers training different DL models. The repeating patterns observed can be leveraged by the scheduler or the resource autoscaler to reduce resource fragmentation and overall resource utilization in a dedicated DL cluster. Specifically, our approach combines Conditional Restricted Boltzmann Machines (CRBMs) and clustering techniques to discover common sequences of behaviors (phases) of containers running the DL training workloads in clusters providing IBM Deep Learning Services. By studying the resource usage pattern at each phase and the typical sequences of phases among different containers, we discover a reduced set of prototypical executions representing the majority of executions. We use statistical information from each phase to refine resource provisioning by dynamically tuning the amount of resource each container requires at each phase. Evaluation of our method shows that by leveraging typical resource usage patterns, we can auto-scale containers to reduce CPU and Memory allocation by 30% compared to statistics based reactive policies, which is close to having a-priori knowledge of resource usage while fulfilling resource demand over 95% of the time.
@@ -27,9 +29,10 @@ The AI4DL package contains the basic code to train and use the AI4Dl tool from C
 
  * **example.py** : An example loading a traces data-set, training the AI4DL (complete crbm + clustering pipeline) and printing an example trace with found phases 
  
-### Sample Notebook
+### Sample Notebooks
 
- * **sample_nb**: Here's a sample notebook with a trained model and sample traces
+ * **1 - detecting phases**: Here's a sample notebook with a trained model and sample traces
+ * **2 - expanding phases**: Here's a sample notebook on updating the set of phases with new traces
 
 ## Using the Tool
 
