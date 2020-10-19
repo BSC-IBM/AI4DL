@@ -1,0 +1,1 @@
+{"n_vis": 8, "n_hid": 10, "n_his": 3, "sigma": 0.2, "monitor_time": true, "scale_factor": 0, "n_epochs": 1000, "learning_rate": 0.001, "momentum": 0.0, "verbose": 1, "random_state": 1234, "patience": 3, "dtype": "Float32"}
